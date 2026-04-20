@@ -84,6 +84,138 @@ class InfiniteCarousel {
 }
 
 // ============================================
+// VISUALIZADOR MOBILE
+// ============================================
+
+class MobileImageViewer {
+  constructor() {
+    this.viewer = document.getElementById('mobileImageViewer');
+    this.mediaContainer = document.getElementById('mobileMediaContainer');
+    this.title = document.getElementById('mobileViewerTitle');
+    this.description = document.getElementById('mobileViewerDescription');
+    this.indicator = document.getElementById('mobileViewerIndicator');
+    this.closeBtn = document.getElementById('mobileViewerClose');
+    this.prevBtn = document.getElementById('mobilePrevBtn');
+    this.nextBtn = document.getElementById('mobileNextBtn');
+    
+    this.images = [];
+    this.currentIndex = 0;
+    
+    this.init();
+  }
+  
+  init() {
+    this.closeBtn?.addEventListener('click', () => this.close());
+    this.prevBtn?.addEventListener('click', () => this.prev());
+    this.nextBtn?.addEventListener('click', () => this.next());
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (this.viewer && this.viewer.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') this.prev();
+        if (e.key === 'ArrowRight') this.next();
+        if (e.key === 'Escape') this.close();
+      }
+    });
+  }
+  
+  collectImages(clickedElement) {
+    // Coletar todas as imagens e vídeos
+    const allMedia = document.querySelectorAll('.galeria-item img, .carousel-item img, .carousel-item video');
+    this.images = Array.from(allMedia).map(media => {
+      const isVideo = media.tagName === 'VIDEO';
+      return {
+        src: media.src,
+        type: isVideo ? 'video' : 'image',
+        title: media.getAttribute('data-title') || 'Isabelli',
+        description: media.getAttribute('data-description') || 'Um retrato do momento perfeito.',
+        tag: media.getAttribute('data-tag') || 'Momento especial'
+      };
+    });
+    
+    // Encontrar o índice da mídia clicada
+    this.currentIndex = Array.from(allMedia).indexOf(clickedElement);
+  }
+  
+  open(clickedElement) {
+    if (!clickedElement) return;
+    this.collectImages(clickedElement);
+    if (this.viewer) {
+      this.viewer.classList.add('active');
+    }
+    document.body.style.overflow = 'hidden';
+    if (carousel?.isAutoScrolling) {
+      carousel.isAutoScrolling = false;
+    }
+    this.updateDisplay();
+  }
+  
+  close() {
+    if (this.viewer) {
+      this.viewer.classList.remove('active');
+    }
+    document.body.style.overflow = 'auto';
+    if (carousel && carousel.isAutoScrolling === false) {
+      carousel.isAutoScrolling = true;
+    }
+  }
+  
+  prev() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.updateDisplay();
+    }
+  }
+  
+  next() {
+    if (this.currentIndex < this.images.length - 1) {
+      this.currentIndex++;
+      this.updateDisplay();
+    }
+  }
+  
+  updateDisplay() {
+    const current = this.images[this.currentIndex];
+    
+    // Renderizar mídia correta (img ou video)
+    this.mediaContainer.innerHTML = '';
+    if (current.type === 'video') {
+      const video = document.createElement('video');
+      video.src = current.src;
+      video.controls = true;
+      video.className = 'mobile-viewer-media';
+      video.autoplay = true;
+      this.mediaContainer.appendChild(video);
+    } else {
+      const img = document.createElement('img');
+      img.src = current.src;
+      img.className = 'mobile-viewer-media';
+      this.mediaContainer.appendChild(img);
+    }
+    
+    this.title.textContent = current.title;
+    this.description.textContent = current.description;
+    
+    // Atualizar botões de navegação
+    if (this.prevBtn) this.prevBtn.disabled = this.currentIndex === 0;
+    if (this.nextBtn) this.nextBtn.disabled = this.currentIndex === this.images.length - 1;
+    
+    // Atualizar indicador
+    this.updateIndicator();
+  }
+  
+  updateIndicator() {
+    if (!this.indicator) return;
+    this.indicator.innerHTML = '';
+    for (let i = 0; i < this.images.length; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'mobile-viewer-dot' + (i === this.currentIndex ? ' active' : '');
+      this.indicator.appendChild(dot);
+    }
+  }
+}
+
+// ============================================
 // MODAL INTERATIVO
 // ============================================
 
@@ -98,6 +230,10 @@ class InteractiveModal {
     this.bindEvents();
   }
 
+  isMobile() {
+    return window.innerWidth <= 768;
+  }
+
   bindEvents() {
     // Abre modal ao clicar em imagens
     document.querySelectorAll('.galeria-item img, .carousel-item img, .carousel-item video').forEach(media => {
@@ -106,7 +242,13 @@ class InteractiveModal {
         const title = media.getAttribute('data-title') || 'Isabelli';
         const description = media.getAttribute('data-description') || 'Um retrato do momento perfeito, capturando a beleza e a elegância em cada detalhe.';
         const tag = media.getAttribute('data-tag') || 'Momento especial';
-        this.openModal(media.src, title, description, tag);
+        
+        // Usar visualizador mobile em telas pequenas
+        if (this.isMobile()) {
+          mobileViewer?.open(media);
+        } else {
+          this.openModal(media.src, title, description, tag);
+        }
       });
     });
 
@@ -140,9 +282,6 @@ class InteractiveModal {
     // Resume carrossel
     carousel?.isAutoScrolling === false && (carousel.isAutoScrolling = true);
   }
-
-
-  // Modal removeu o tilt effect - código mais simples e rápido!
 }
 
 // ============================================
@@ -174,19 +313,21 @@ class InteractiveGallery {
 let carousel;
 let modal;
 let gallery;
+let mobileViewer;
 
 document.addEventListener('DOMContentLoaded', () => {
   // Inicializa componentes
   carousel = new InfiniteCarousel();
   modal = new InteractiveModal();
   gallery = new InteractiveGallery();
+  mobileViewer = new MobileImageViewer();
 
   // Retoma auto-scroll após 5 segundos de inatividade
   let autoScrollResumeTimer;
   document.addEventListener('mousemove', () => {
     clearTimeout(autoScrollResumeTimer);
     autoScrollResumeTimer = setTimeout(() => {
-      if (!carousel.mouseDown && !modal.modal.classList.contains('active')) {
+      if (!carousel.mouseDown && !modal.modal.classList.contains('active') && !mobileViewer.viewer.classList.contains('active')) {
         carousel.isAutoScrolling = true;
       }
     }, 5000);
