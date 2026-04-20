@@ -1,0 +1,187 @@
+🎨 PALETA DE CORES - PORTFÓLIO ISABELLI
+═══════════════════════════════════════════════════════════════
+
+A paleta foi cuidadosamente escolhida para combinar:
+✓ Verde pastel (natureza, harmonia)
+✓ Dourado (luxo, modernidade)
+✓ Preto (contraste, elegância)
+✓ Brancos e off-whites (minimalismo)
+
+═══════════════════════════════════════════════════════════════
+
+CORES PRINCIPAIS:
+
+🟢 Verde Pastel Principal
+   HEX: #A8D5BA
+   RGB: 168, 213, 186
+   Uso: Borders, highlights, subtle backgrounds
+   Vibe: Suave, natural, convidativo
+
+🟢 Verde Pastel Claro
+   HEX: #D4E8DD
+   RGB: 212, 232, 221
+   Uso: Backgrounds, hero section, carrossel
+   Vibe: Muito claro, elegante, airy
+
+🟢 Verde Escuro
+   HEX: #4A7C59
+   RGB: 74, 124, 89
+   Uso: Textos, logo, títulos principais
+   Vibe: Rico, profundo, natureza
+
+✨ Dourado Clássico
+   HEX: #D4AF37
+   RGB: 212, 175, 55
+   Uso: Links, accents, destaques
+   Vibe: Luxo, elegância, modernidade
+
+✨ Dourado Suave
+   HEX: #C9A961
+   RGB: 201, 169, 97
+   Uso: Gradientes, hover states
+   Vibe: Warm, softer than classic gold
+
+⚫ Preto Elegante
+   HEX: #1A1A1A
+   RGB: 26, 26, 26
+   Uso: Footer, textos principais
+   Vibe: Profissional, forte contraste
+
+⚪ Branco Off-White
+   HEX: #FAFAF8
+   RGB: 250, 250, 248
+   Uso: Background principal, modal backgrounds
+   Vibe: Warm white, não é muito branco puro
+
+🔘 Cinza Claro
+   HEX: #F0F4F2
+   RGB: 240, 244, 242
+   Uso: Backgrounds de itens, galeria
+   Vibe: Suave, harmônico com verde
+
+═══════════════════════════════════════════════════════════════
+
+ONDE CADA COR É USADA:
+
+HEADER:
+  ├─ Background: Verde Claro (#D4E8DD) com transparência
+  ├─ Logo: Gradiente Verde Escuro → Dourado Suave
+  ├─ Links: Verde Escuro (#4A7C59)
+  └─ Underline hover: Gradiente Dourado
+
+HERO SECTION:
+  ├─ Background: Gradiente Verde Claro → Branco → Dourado
+  ├─ Título: Verde Escuro (#4A7C59)
+  ├─ Subtítulo: Verde Escuro com opacity
+  └─ Efeito blob: Verde Pastel com blur
+
+SEÇÃO TÍTULOS:
+  ├─ Texto: Verde Escuro (#4A7C59)
+  └─ Underline: Gradiente Dourado → Verde Pastel
+
+GALERIA:
+  ├─ Background itens: Cinza Claro (#F0F4F2)
+  ├─ Border normal: Transparente
+  ├─ Border hover: Verde Pastel (#A8D5BA)
+  └─ Shadow: Verde Escuro com opacity
+
+CARROSSEL:
+  ├─ Background seção: Gradiente Branco → Verde Claro
+  ├─ Items: Cinza Claro (#F0F4F2)
+  ├─ Scrollbar: Verde Pastel
+  └─ Scrollbar hover: Verde Escuro
+
+MODAL:
+  ├─ Overlay: Preto com alta opacity e blur
+  ├─ Content background: Branco Off-White
+  ├─ Border: Verde Pastel (#A8D5BA)
+  ├─ Close button: Verde Claro com Verde Escuro text
+  └─ Close hover: Verde Pastel fundo, Branco text
+
+FOOTER:
+  ├─ Background: Gradiente Preto → Verde Escuro
+  ├─ Top border: Dourado Suave (#C9A961)
+  ├─ Texto: Branco com opacity
+  └─ Pseudo-elemento: Verde Escuro com blur
+
+═══════════════════════════════════════════════════════════════
+
+VARIÁVEIS CSS (No topo do styles.css):
+
+:root {
+  --verde-pastel: #A8D5BA;
+  --verde-claro: #D4E8DD;
+  --verde-escuro: #4A7C59;
+  --dourado: #D4AF37;
+  --dourado-suave: #C9A961;
+  --preto: #1A1A1A;
+  --branco: #FAFAF8;
+  --cinza-claro: #F0F4F2;
+}
+
+Para usar: color: var(--verde-escuro);
+
+═══════════════════════════════════════════════════════════════
+
+DICAS DE CUSTOMIZAÇÃO:
+
+Se quer mudar VERDE para outra cor natural:
+  • Azul pastel: #B3D9F0 (cu, água)
+  • Rosa pastel: #E8C8D8 (flores)
+  • Roxo pastel: #D4B5E8 (lavanda)
+
+Se quer adicionar mais variações:
+  • Verde super claro: #EEF3F0
+  • Verde super escuro: #2D5A3D
+
+Para ACESSIBILIDADE, certifique-se de:
+  • Verde Pastel (#A8D5BA) em branco tem bom contraste
+  • Verde Escuro (#4A7C59) tem excelente contraste
+  • Dourado (#D4AF37) em branco também é ok
+
+═══════════════════════════════════════════════════════════════
+
+HARMONIA DE CORES EXPLICADA:
+
+1. Verde Pastel
+   → Representa a natureza e tranquilidade que ela gosta
+   → Tons claros mantêm elegância moderna
+   → Não é o verde "comum", é sofisticado
+
+2. Dourado
+   → Adiciona luxo e modernidade
+   → Contrasta lindamente com verde
+   → Usado com moderação (accents apenas)
+
+3. Preto
+   → Contraste forte e profissional
+   → Usado apenas no footer para peso visual
+   → Mantém a sofisticação
+
+4. Branco Off-White
+   → Não é puro branco (muito frio)
+   → Tem um toque quente que complementa as cores
+   → Mantém o minimalismo elegante
+
+═══════════════════════════════════════════════════════════════
+
+PROPORÇÕES RECOMENDADAS:
+
+Verde (todos os tons): 60%
+Branco/Off-white: 25%
+Dourado: 10%
+Preto: 5%
+
+Isso mantém o verde como cor principal
+enquanto dourado e preto dão destaque.
+
+═══════════════════════════════════════════════════════════════
+
+Se for adicionar fotos e quer que a paleta funcione:
+
+✓ Fotos com muito verde natural combinarão perfeitamente
+✓ Fotos com flores douradas/alaranjadas são lindas
+✓ Fotos com preto e branco contrastam bem
+✓ Evite cores muito vibrantes que compitam com a paleta
+
+═══════════════════════════════════════════════════════════════

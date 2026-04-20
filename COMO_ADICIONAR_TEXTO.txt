@@ -1,0 +1,255 @@
+📝 COMO ADICIONAR TEXTO ÀS FOTOS DO MODAL
+═══════════════════════════════════════════════════════════════
+
+Seu modal agora tem um espaço para texto à direita das imagens! 🎨
+
+═══════════════════════════════════════════════════════════════
+
+🎯 COMO FUNCIONA:
+
+Desktop (>768px):
+  [IMAGEM] | [TEXTO]
+  
+Tablet & Mobile (<768px):
+  [IMAGEM]
+  [TEXTO]
+
+═══════════════════════════════════════════════════════════════
+
+✍️ COMO ADICIONAR DESCRIÇÕES:
+
+Cada imagem pode ter 3 atributos customizáveis:
+
+1. data-title     → Título da foto (padrão: "Isabelli")
+2. data-description → Descrição (padrão: "Um retrato do momento perfeito...")
+3. data-tag       → Tag/categoria (padrão: "Momento especial")
+
+EXEMPLO COM PERSONALIZAÇÃO:
+
+<!-- GALERIA -->
+<div class="galeria-item">
+  <img 
+    src="images/foto1.jpg" 
+    alt="Foto Isabelli"
+    data-title="Dia Ensolarado"
+    data-description="Um dia perfeito na natureza, com a beleza natural em primeiro plano."
+    data-tag="Natureza"
+    loading="lazy"
+  >
+</div>
+
+<!-- CARROSSEL -->
+<div class="carousel-item">
+  <img 
+    src="images/momento1.jpg" 
+    alt="Casal"
+    data-title="Nossos Momentos"
+    data-description="Cada instante com você é especial. Aqui está guardado um desses momentos."
+    data-tag="Casal"
+    loading="lazy"
+  >
+</div>
+
+═══════════════════════════════════════════════════════════════
+
+📋 EXEMPLOS REAIS PARA USAR:
+
+EXEMPLO 1 - Foto de retrato:
+<img 
+  src="images/retrato.jpg" 
+  alt="Retrato"
+  data-title="Retrato Elegante"
+  data-description="A elegância natural capturada em um único momento. Cada detalhe conta uma história de sofisticação e beleza."
+  data-tag="Retrato"
+  loading="lazy"
+>
+
+EXEMPLO 2 - Foto da natureza:
+<img 
+  src="images/natureza.jpg" 
+  alt="Natureza"
+  data-title="Abraçando a Natureza"
+  data-description="Cercada pelo verde que a inspira. Um conexão perfeita entre pessoa e natureza."
+  data-tag="Natureza"
+  loading="lazy"
+>
+
+EXEMPLO 3 - Momento especial:
+<img 
+  src="images/casal.jpg" 
+  alt="Casal"
+  data-title="Juntos"
+  data-description="Momento congelado no tempo. Quando duas pessoas se encontram e tudo fica perfeito."
+  data-tag="Casal"
+  loading="lazy"
+>
+
+EXEMPLO 4 - Sem personalização (usa padrão):
+<img 
+  src="images/foto.jpg" 
+  alt="Foto"
+  loading="lazy"
+>
+→ Vai mostrar textos padrão (Isabelli, descrição genérica, etc)
+
+═══════════════════════════════════════════════════════════════
+
+🎨 O QUE APARECE NO MODAL:
+
+┌─────────────────────────────────┐
+│  ←  Imagem        │ data-title   │
+│      Grande       │ (Título)     │
+│                   │              │
+│                   │ data-desc... │
+│                   │ (Descrição)  │
+│                   │              │
+│                   │ [data-tag]   │
+│                   │ (Tag/Marca)  │
+└─────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+
+💡 DICAS:
+
+✓ Títulos: Mantenha breves (até 2-3 palavras é ideal)
+  Exemplo: "Dia Ensolarado", "Natureza Selvagem", "Momento Especial"
+
+✓ Descrições: Até 2-3 linhas funcionam bem
+  Exemplo: "Uma foto que capture um sentimento, um momento, uma história."
+
+✓ Tags: Máximo 15 caracteres
+  Exemplos: "Natureza", "Retrato", "Casal", "Viagem", "Studio"
+
+═══════════════════════════════════════════════════════════════
+
+🎯 PASSO A PASSO PARA ADICIONAR SUAS FOTOS:
+
+1. Copie suas imagens para a pasta "images/"
+
+2. Edite o index.html - GALERIA EDITORIAL:
+
+   PROCURE:
+   <div class="galeria-grid">
+     <div class="galeria-item large">
+       <img src="https://images.unsplash.com/..." alt="Foto 1">
+     </div>
+
+   SUBSTITUA POR:
+   <div class="galeria-grid">
+     <div class="galeria-item large">
+       <img 
+         src="images/sua-foto.jpg" 
+         alt="Descrição curta"
+         data-title="Título Bonito"
+         data-description="Uma descrição linda e elegante sobre essa foto especial."
+         data-tag="Natureza"
+         loading="lazy"
+       >
+     </div>
+
+3. Edite o index.html - CARROSSEL:
+
+   PROCURE:
+   <div class="carousel-track" id="carouselTrack">
+     <div class="carousel-item">
+       <img src="https://images.unsplash.com/..." alt="Momento 1">
+     </div>
+
+   SUBSTITUA POR:
+   <div class="carousel-track" id="carouselTrack">
+     <div class="carousel-item">
+       <img 
+         src="images/momento1.jpg" 
+         alt="Nossos momentos"
+         data-title="Nossos Momentos"
+         data-description="Aqui estão guardados os momentos que mais importam."
+         data-tag="Casal"
+         loading="lazy"
+       >
+     </div>
+
+═══════════════════════════════════════════════════════════════
+
+🌟 VALORES PADRÃO (Se não especificar):
+
+Se você NÃO adicionar os atributos data-*, o modal vai mostrar:
+
+Title: "Isabelli"
+Description: "Um retrato do momento perfeito, capturando a beleza e a elegância em cada detalhe."
+Tag: "Momento especial"
+
+═══════════════════════════════════════════════════════════════
+
+⚙️ TÉCNICO:
+
+O sistema usa esses atributos HTML:
+- data-title="texto"
+- data-description="texto"
+- data-tag="texto"
+
+Quando você clica em uma imagem, o JavaScript lê esses valores
+e preenche o modal dinamicamente.
+
+═══════════════════════════════════════════════════════════════
+
+✨ DESIGN DO MODAL COM TEXTO:
+
+Desktop (lado a lado):
+  • Imagem ocupa 60-70% da largura
+  • Texto ocupa 30-40% (300px fixo)
+  • Título em verde escuro (#4A7C59) - 1.8rem
+  • Descrição em cinza escuro - 0.95rem
+  • Tags com fundo verde suave
+
+Tablet/Mobile (empilhado):
+  • Imagem em cima (90% da altura)
+  • Texto embaixo com border superior verde
+  • Tudo adaptado para tela pequena
+
+═══════════════════════════════════════════════════════════════
+
+🎨 CORES DO TEXTO:
+
+Títulos:       #4A7C59 (Verde Escuro)
+Descrição:     #666 (Cinza Médio)
+Tags/Marca:    #4A7C59 em fundo #D4E8DD (Verde Claro)
+Border:        #A8D5BA (Verde Pastel)
+
+═══════════════════════════════════════════════════════════════
+
+📱 TESTANDO:
+
+1. Abra o site no navegador
+2. Clique em uma imagem
+3. Veja o modal com a imagem e o texto ao lado
+4. Em mobile, o texto aparece abaixo
+
+═══════════════════════════════════════════════════════════════
+
+❓ PERGUNTAS FREQUENTES:
+
+P: O texto é obrigatório?
+R: Não! Se não adicionar os atributos data-*, vai mostrar os padrões.
+
+P: Posso usar quebras de linha?
+R: Não no atributo. Use \n no JavaScript se quiser algo mais complexo.
+
+P: Quantos caracteres posso usar?
+R: Sem limite técnico, mas recomendo:
+   - Título: até 30 caracteres
+   - Descrição: até 200 caracteres
+   - Tag: até 20 caracteres
+
+P: Posso adicionar emoji?
+R: Sim! Emojis funcionam perfeitamente:
+   data-tag="🌿 Natureza"
+   data-title="Dia ☀️ Ensolarado"
+
+═══════════════════════════════════════════════════════════════
+
+🚀 PRÓXIMO PASSO:
+
+Abra o index.html e comece a substituir as imagens de teste
+pelos seus dados. O modal está 100% funcional e bonito! 📸
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,261 @@
+<!-- 
+  ====================================================
+  GUIA: COMO ADICIONAR SUAS PRÓPRIAS FOTOS
+  ====================================================
+  
+  Este arquivo mostra exemplos práticos de como 
+  personalizar o index.html com suas fotos.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seus Ajustes</title>
+</head>
+<body>
+
+<h1>📝 Exemplos de Personalização</h1>
+
+<h2>1️⃣ ADICIONAR FOTOS LOCAIS (Pasta 'images')</h2>
+<pre>
+ESTRUTURA DE PASTAS RECOMENDADA:
+
+Isabelli/
+├── index.html
+├── styles.css
+├── script.js
+├── README.md
+└── images/
+    ├── galeria/
+    │   ├── foto1.jpg
+    │   ├── foto2.jpg
+    │   ├── foto3.jpg
+    │   └── foto4.jpg
+    └── carousel/
+        ├── momento1.jpg
+        ├── momento2.jpg
+        └── momento3.jpg
+
+NO HTML, USE:
+&lt;img src="images/galeria/foto1.jpg" alt="Descrição"&gt;
+&lt;img src="images/carousel/momento1.jpg" alt="Descrição"&gt;
+</pre>
+
+<h2>2️⃣ EXEMPLO: SUBSTITUIR FOTOS DA GALERIA</h2>
+<pre>
+ANTES (com URL online):
+&lt;div class="galeria-item large"&gt;
+  &lt;img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&h=600&fit=crop" alt="Foto 1" loading="lazy"&gt;
+&lt;/div&gt;
+
+DEPOIS (com foto local):
+&lt;div class="galeria-item large"&gt;
+  &lt;img src="images/galeria/isabelli-1.jpg" alt="Isabelli em dia ensolarado" loading="lazy"&gt;
+&lt;/div&gt;
+</pre>
+
+<h2>3️⃣ EXEMPLO: ADICIONAR MAIS FOTOS NO CARROSSEL</h2>
+<pre>
+Dentro de &lt;div class="carousel-track" id="carouselTrack"&gt;
+
+ADICIONE NOVOS ITENS:
+&lt;div class="carousel-item"&gt;
+  &lt;img src="images/carousel/casal-praia.jpg" alt="Nós na praia" loading="lazy"&gt;
+&lt;/div&gt;
+
+&lt;div class="carousel-item"&gt;
+  &lt;img src="images/carousel/viagem-montanha.jpg" alt="Nossa viagem" loading="lazy"&gt;
+&lt;/div&gt;
+</pre>
+
+<h2>4️⃣ COMPRIMIR IMAGENS (IMPORTANTE!)</h2>
+<pre>
+Para o site rodar rápido, comprima as fotos:
+
+❌ RUIM: Foto JPG com 5MB
+✅ BOM: Foto JPG com 200-500KB
+
+FERRAMENTAS GRÁTIS:
+- TinyPNG.com (arraste e solta)
+- Squoosh.app (do Google)
+- ImageOptim (Mac) ou FileOptimizer (Windows)
+
+DICAS:
+- Máximo 2000x2000px de resolução
+- Qualidade 80% geralmente é imperceptível
+- Use JPG para fotos, PNG para gráficos
+</pre>
+
+<h2>5️⃣ PERSONALIZAR CORES NO CSS</h2>
+<pre>
+EDITE 'styles.css' PARA MUDAR CORES:
+
+/* Fundo da página */
+body {
+  background-color: #fafafa; /* ← Mude aqui */
+}
+
+/* Texto principal */
+body {
+  color: #1a1a1a; /* ← Mude aqui */
+}
+
+/* Header/Navbar */
+.header {
+  background: rgba(255, 255, 255, 0.95); /* ← Branco */
+}
+
+ENCONTRE CORES BONITAS EM:
+- coolors.co (gerador de paletas)
+- colorhexa.com (conversor HEX)
+- Pinterest (busque "color palette")
+</pre>
+
+<h2>6️⃣ MUDAR TEXTOS PRINCIPAIS</h2>
+<pre>
+NO 'index.html':
+
+NOME NO LOGO:
+&lt;h1 class="logo"&gt;Isabelli&lt;/h1&gt; ← MUDE AQUI
+
+TÍTULO HERO:
+&lt;h2&gt;Criatividade em cada detalhe&lt;/h2&gt; ← MUDE AQUI
+
+SUBTÍTULO:
+&lt;p&gt;Um portfólio minimalista e elegante&lt;/p&gt; ← MUDE AQUI
+
+TÍTULOS DAS SEÇÕES:
+Procure por &lt;h2 class="section-title"&gt;
+</pre>
+
+<h2>7️⃣ ADICIONAR REDES SOCIAIS (EXTRA)</h2>
+<pre>
+ADICIONE ISTO NO FOOTER (antes de &lt;/footer&gt;):
+
+&lt;div class="social-links"&gt;
+  &lt;a href="https://instagram.com/seu-usuario" target="_blank" title="Instagram"&gt;
+    📸
+  &lt;/a&gt;
+  &lt;a href="https://www.tiktok.com/@seu-usuario" target="_blank" title="TikTok"&gt;
+    🎵
+  &lt;/a&gt;
+  &lt;a href="https://www.pinterest.com/seu-usuario" target="_blank" title="Pinterest"&gt;
+    📌
+  &lt;/a&gt;
+&lt;/div&gt;
+
+ADICIONE ISTO EM 'styles.css':
+
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-links a {
+  font-size: 2rem;
+  transition: transform 0.2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+</pre>
+
+<h2>8️⃣ OTIMIZAÇÕES EXTRAS</h2>
+<pre>
+✅ LAZY LOADING (já está incluído):
+&lt;img src="..." loading="lazy"&gt;
+
+✅ SRCSET para diferentes resoluções:
+&lt;img 
+  src="images/foto-500.jpg"
+  srcset="images/foto-500.jpg 500w,
+          images/foto-1000.jpg 1000w"
+  alt="Descrição"
+  loading="lazy"
+&gt;
+
+✅ WEBP (formato mais rápido):
+&lt;picture&gt;
+  &lt;source srcset="images/foto.webp" type="image/webp"&gt;
+  &lt;img src="images/foto.jpg" alt="Descrição"&gt;
+&lt;/picture&gt;
+</pre>
+
+<h2>9️⃣ TESTAR LOCALMENTE</h2>
+<pre>
+OPÇÃO 1 - Navegador direto (Simples):
+1. Abra o arquivo index.html no navegador
+   (Basta dar double-click no arquivo)
+
+OPÇÃO 2 - Servidor Local (Recomendado):
+Se você tem Python instalado:
+  - Digite no terminal: python -m http.server
+  - Abra: http://localhost:8000
+
+Se você tem Node.js instalado:
+  - Digite no terminal: npx serve
+  - Siga as instruções na tela
+
+OPÇÃO 3 - VS Code:
+1. Instale a extensão "Live Server"
+2. Clique direito em index.html
+3. Clique em "Open with Live Server"
+</pre>
+
+<h2>🔟 CHECKLIST FINAL</h2>
+<pre>
+Antes de publicar:
+
+☐ Fotos adicionadas e comprimidas
+☐ Textos/nome alterados
+☐ Testou no navegador
+☐ Testou no celular (responsivo)
+☐ Verificou links funcionam
+☐ Testou modal e carrossel
+☐ Verificou velocidade (devtools F12 > Network)
+☐ Cross-browser test (Chrome, Firefox, Safari, Edge)
+☐ Nenhuma imagem quebrada (404)
+</pre>
+
+<h2>📚 REFERÊNCIAS</h2>
+<pre>
+Performance:
+- developers.google.com/web/fundamentals/performance
+
+Web.dev:
+- web.dev/performance
+
+HTML/CSS/JS:
+- developer.mozilla.org (MDN Docs - muito bom!)
+- w3schools.com (tutoriais)
+
+Ferramentas:
+- pagespeed.web.dev (testa performance)
+- lighthouse (auditoria automática)
+</pre>
+
+<h2>💬 COMANDOS ÚTEIS NO TERMINAL</h2>
+<pre>
+Comprimir fotos em bulk (ImageMagick):
+mogrify -quality 80 -resize 2000x2000 images/*.jpg
+
+Converter para WebP:
+cwebp images/foto.jpg -o images/foto.webp
+
+Verificar tamanho:
+ls -lh images/
+
+Servidor Python simples:
+python -m http.server 8000
+
+Servidor Node:
+npx http-server
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "isabelli-portfolio",
+  "version": "1.0.0",
+  "description": "Portfólio minimalista e interativo para Isabelli",
+  "author": "Criado com ❤️",
+  "license": "MIT",
+  "scripts": {
+    "serve": "npx http-server -p 8080 -o",
+    "dev": "npx http-server -p 8080 --gzip",
+    "build": "echo 'Este projeto não precisa de build!'"
+  },
+  "keywords": [
+    "portfolio",
+    "minimalista",
+    "vanilla-js",
+    "responsive"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/isabelli-portfolio"
+  }
+}

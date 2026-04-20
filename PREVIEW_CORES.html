@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paleta de Cores - Preview</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #FAFAF8;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4A7C59;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    .colors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .color-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(74, 124, 89, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .color-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(74, 124, 89, 0.2);
+    }
+
+    .color-box {
+      height: 150px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 20px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .color-info {
+      padding: 20px;
+      background: white;
+    }
+
+    .color-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #4A7C59;
+      margin-bottom: 10px;
+    }
+
+    .color-value {
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .color-usage {
+      font-size: 0.85rem;
+      color: #999;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    /* Color variations */
+    .verde-pastel { background: #A8D5BA; }
+    .verde-claro { background: #D4E8DD; }
+    .verde-escuro { background: #4A7C59; }
+    .dourado { background: #D4AF37; color: #1a1a1a !important; text-shadow: none !important; }
+    .dourado-suave { background: #C9A961; color: #1a1a1a !important; text-shadow: none !important; }
+    .preto { background: #1A1A1A; }
+    .branco { background: #FAFAF8; border: 2px solid #E0E0E0; color: #4A7C59 !important; text-shadow: none !important; }
+    .cinza-claro { background: #F0F4F2; border: 2px solid #D0D8D5; color: #4A7C59 !important; text-shadow: none !important; }
+
+    /* Combinations */
+    .combinations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .combo {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(74, 124, 89, 0.1);
+    }
+
+    .combo-header {
+      background: #D4E8DD;
+      padding: 20px;
+      border-left: 4px solid #A8D5BA;
+    }
+
+    .combo-header h3 {
+      color: #4A7C59;
+      margin-bottom: 10px;
+    }
+
+    .combo-preview {
+      padding: 20px;
+      background: white;
+    }
+
+    .combo-title {
+      color: #4A7C59;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .combo-text {
+      color: #666;
+      margin: 8px 0;
+    }
+
+    .combo-accent {
+      color: #D4AF37;
+      font-weight: 600;
+    }
+
+    /* Samples */
+    .sample-section {
+      margin-top: 60px;
+      padding: 40px;
+      background: linear-gradient(135deg, #D4E8DD 0%, #FAFAF8 50%, rgba(212, 175, 55, 0.15) 100%);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .sample-section h2 {
+      color: #4A7C59;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .sample-section p {
+      color: #4A7C59;
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .button-sample {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: #A8D5BA;
+      color: #4A7C59;
+      border: 2px solid #4A7C59;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .button-sample:hover {
+      background: #4A7C59;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      color: #999;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .colors-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Paleta de Cores Isabelli</h1>
+
+    <div class="colors-grid">
+      <div class="color-card">
+        <div class="color-box verde-pastel">
+          Verde Pastel
+        </div>
+        <div class="color-info">
+          <div class="color-name">Verde Pastel</div>
+          <div class="color-value">HEX: #A8D5BA</div>
+          <div class="color-value">RGB: 168, 213, 186</div>
+          <div class="color-usage">Borders, highlights, accents principais</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-box verde-claro">
+          Verde Claro
+        </div>
+        <div class="color-info">
+          <div class="color-name">Verde Pastel Claro</div>
+          <div class="color-value">HEX: #D4E8DD</div>
+          <div class="color-value">RGB: 212, 232, 221</div>
+          <div class="color-usage">Backgrounds, hero, carrossel</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-box verde-escuro">
+          Verde Escuro
+        </div>
+        <div class="color-info">
+          <div class="color-name">Verde Escuro</div>
+          <div class="color-value">HEX: #4A7C59</div>
+          <div class="color-value">RGB: 74, 124, 89</div>
+          <div class="color-usage">Textos, títulos, logo principal</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-box dourado">
+          Dourado
+        </div>
+        <div class="color-info">
+          <div class="color-name">Dourado Clássico</div>
+          <div class="color-value">HEX: #D4AF37</div>
+          <div class="color-value">RGB: 212, 175, 55</div>
+          <div class="color-usage">Links, accents, destaques</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-box dourado-suave">
+          Dourado Suave
+        </div>
+        <div class="color-info">
+          <div class="color-name">Dourado Suave</div>
+          <div class="color-value">HEX: #C9A961</div>
+          <div class="color-value">RGB: 201, 169, 97</div>
+          <div class="color-usage">Gradientes, hover states</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-box preto">
+          Preto
+        </div>
+        <div class="color-info">
+          <div class="color-name">Preto Elegante</div>
+          <div class="color-value">HEX: #1A1A1A</div>
+          <div class="color-value">RGB: 26, 26, 26</div>
+          <div class="color-usage">Footer, contraste forte</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-box branco">
+          Branco Off-White
+        </div>
+        <div class="color-info">
+          <div class="color-name">Branco Off-White</div>
+          <div class="color-value">HEX: #FAFAF8</div>
+          <div class="color-value">RGB: 250, 250, 248</div>
+          <div class="color-usage">Background principal, modal</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-box cinza-claro">
+          Cinza Claro
+        </div>
+        <div class="color-info">
+          <div class="color-name">Cinza Claro</div>
+          <div class="color-value">HEX: #F0F4F2</div>
+          <div class="color-value">RGB: 240, 244, 242</div>
+          <div class="color-usage">Items da galeria, suave</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="text-align: center; color: #4A7C59; margin: 60px 0 40px;">Combinações Harmônicas</h2>
+
+    <div class="combinations">
+      <div class="combo">
+        <div class="combo-header">
+          <h3>🎨 Primária</h3>
+        </div>
+        <div class="combo-preview">
+          <div class="combo-title">Verde Escuro + Verde Pastel</div>
+          <div class="combo-text">
+            Títulos em <span style="color: #4A7C59; font-weight: bold;">Verde Escuro</span>
+          </div>
+          <div class="combo-text">
+            Borders em <span style="color: #A8D5BA; font-weight: bold;">Verde Pastel</span>
+          </div>
+          <button class="button-sample" style="background: #4A7C59; color: white; margin-top: 10px;">
+            Exemplo de Botão
+          </button>
+        </div>
+      </div>
+
+      <div class="combo">
+        <div class="combo-header">
+          <h3>✨ Luxo</h3>
+        </div>
+        <div class="combo-preview">
+          <div class="combo-title">Verde Escuro + Dourado</div>
+          <div class="combo-text">
+            Texto em <span style="color: #4A7C59; font-weight: bold;">Verde Escuro</span>
+          </div>
+          <div class="combo-text">
+            Destaques em <span class="combo-accent">Dourado</span>
+          </div>
+          <button class="button-sample" style="background: #D4AF37; color: #1a1a1a; margin-top: 10px;">
+            Premium
+          </button>
+        </div>
+      </div>
+
+      <div class="combo">
+        <div class="combo-header">
+          <h3>🌿 Natural</h3>
+        </div>
+        <div class="combo-preview">
+          <div class="combo-title">Verde Claro + Verde Escuro</div>
+          <div class="combo-text">
+            Background em <span style="color: #A8D5BA; font-weight: bold;">Verde Claro</span>
+          </div>
+          <div class="combo-text">
+            Texto em <span style="color: #4A7C59; font-weight: bold;">Verde Escuro</span>
+          </div>
+          <button class="button-sample" style="background: #A8D5BA; color: #4A7C59; margin-top: 10px;">
+            Harmonia
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sample-section">
+      <h2>Criatividade em cada detalhe</h2>
+      <p>Um portfólio minimalista e elegante</p>
+      <button class="button-sample">Explore a Galeria</button>
+    </div>
+
+    <footer>
+      <p>Paleta de cores cuidadosamente selecionada para Isabelli 💚</p>
+      <p>Verde Pastel + Dourado + Preto = Elegância Natural & Moderna</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,677 @@
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   CORES & TEMA (Verde Pastel + Dourado + Preto)
+   ============================================ */
+
+:root {
+  --verde-pastel: #A8D5BA;
+  --verde-claro: #D4E8DD;
+  --verde-escuro: #4A7C59;
+  --dourado: #D4AF37;
+  --dourado-suave: #C9A961;
+  --preto: #1A1A1A;
+  --branco: #FAFAF8;
+  --cinza-claro: #F0F4F2;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--branco);
+  color: var(--preto);
+  line-height: 1.6;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   HEADER & NAVIGATION
+   ============================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(212, 232, 221, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #A8D5BA;
+  box-shadow: 0 2px 12px rgba(74, 124, 89, 0.08);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #4A7C59;
+  background: linear-gradient(135deg, #4A7C59 0%, #C9A961 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4A7C59;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #D4AF37, #C9A961);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #D4E8DD 0%, #FAFAF8 50%, rgba(212, 175, 55, 0.15) 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(168, 213, 186, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #4A7C59;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: #4A7C59;
+  opacity: 0.8;
+}
+
+/* ============================================
+   GALERIA EDITORIAL
+   ============================================ */
+
+.galeria {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #4A7C59;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #D4AF37 0%, #A8D5BA 100%);
+  border-radius: 2px;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  grid-auto-rows: 350px;
+}
+
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #F0F4F2;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 124, 89, 0.08);
+}
+
+.galeria-item:hover {
+  border-color: #A8D5BA;
+  box-shadow: 0 8px 25px rgba(74, 124, 89, 0.15);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  will-change: transform;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.05);
+}
+
+.galeria-item.large {
+  grid-column: span 2;
+}
+
+/* Responsivo para galeria */
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    grid-auto-rows: 250px;
+  }
+
+  .galeria-item.large {
+    grid-column: span 1;
+  }
+}
+
+/* ============================================
+   CARROSSEL INFINITO
+   ============================================ */
+
+.carousel-section {
+  background: linear-gradient(180deg, #FAFAF8 0%, #D4E8DD 100%);
+  padding: 4rem 2rem;
+}
+
+.carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: thin;
+  scrollbar-color: #A8D5BA transparent;
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.carousel-wrapper::-webkit-scrollbar-thumb {
+  background: #A8D5BA;
+  border-radius: 4px;
+  border: 2px solid #D4E8DD;
+}
+
+.carousel-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #4A7C59;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  will-change: transform;
+}
+
+.carousel-item {
+  flex: 0 0 400px;
+  height: 400px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F0F4F2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(74, 124, 89, 0.08);
+}
+
+.carousel-item:hover {
+  border-color: #A8D5BA;
+  box-shadow: 0 8px 25px rgba(74, 124, 89, 0.15);
+  transform: translateY(-4px);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  will-change: transform;
+}
+
+.carousel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  will-change: transform;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.08);
+}
+
+.carousel-item:hover video {
+  transform: scale(1.08);
+}
+
+.carousel-hint {
+  text-align: center;
+  color: #4A7C59;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* Responsivo carrossel */
+@media (max-width: 768px) {
+  .carousel-item {
+    flex: 0 0 300px;
+    height: 300px;
+  }
+}
+
+/* ============================================
+   MODAL INTERATIVO
+   ============================================ */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 26, 0.75);
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1001;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  background: #FAFAF8;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: scaleIn 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  will-change: transform;
+  border: 2px solid #A8D5BA;
+  box-shadow: 0 20px 60px rgba(74, 124, 89, 0.2);
+}
+
+.modal-body {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  gap: 0;
+}
+
+.modal-image-container {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0F4F2;
+  max-height: 90vh;
+}
+
+.modal-text-container {
+  flex: 0 0 300px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #FAFAF8;
+  overflow-y: auto;
+}
+
+.modal-title {
+  color: #4A7C59;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.modal-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.modal-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.modal-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #D4E8DD 0%, #E8F0EC 100%);
+  color: #4A7C59;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid #A8D5BA;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #A8D5BA;
+  background: rgba(212, 232, 221, 0.9);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: #4A7C59;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.modal-close:hover {
+  background: #A8D5BA;
+  color: #FAFAF8;
+  transform: scale(1.1);
+  border-color: #4A7C59;
+}
+
+.modal-close:active {
+  transform: scale(0.95);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95) translateZ(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: rgba(0, 0, 0, 0.582);
+  color: #FAFAF8;
+  padding: 1rem 1rem;
+  text-align: center;
+  position: relative;
+  border-top: 3px solid #C9A961;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(180deg, transparent 0%, rgba(74, 124, 89, 0.1) 100%);
+  pointer-events: none;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   RESPONSIVO GLOBAL
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    height: 40vh;
+  }
+
+  /* Modal responsivo */
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .modal-text-container {
+    flex: 0 0 auto;
+    max-height: 200px;
+    border-top: 2px solid #D4E8DD;
+  }
+
+  .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+    grid-auto-rows: 200px;
+  }
+
+  .carousel-item {
+    flex: 0 0 250px;
+    height: 250px;
+  }
+
+  /* Modal em mobile */
+  .modal-content {
+    max-width: 95vw;
+    max-height: 90vh;
+  }
+
+  .modal-text-container {
+    flex: 0 0 auto;
+    padding: 1.5rem;
+    max-height: 150px;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================
+   PERFORMANCE OTIMIZAÇÕES
+   ============================================ */
+
+/* Reduz repaints em scroll */
+.carousel-wrapper {
+  contain: layout style paint;
+}
+
+/* Preload lazy images com prioridade baixa */
+img[loading="lazy"] {
+  opacity: 1;
+}
+
+/* Reduz flickering em animações */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

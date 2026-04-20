@@ -1,0 +1,371 @@
+<!-- 
+  ====================================================
+  GUIA: DEPLOY, PERFORMANCE & SEGURANÇA
+  ====================================================
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deploy & Performance</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    h2 {
+      border-top: 3px solid #ddd;
+      padding-top: 20px;
+      margin-top: 30px;
+    }
+    .status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    .status.good {
+      background: #d4edda;
+      color: #155724;
+    }
+    .status.warning {
+      background: #fff3cd;
+      color: #856404;
+    }
+    ul { margin-left: 20px; }
+  </style>
+</head>
+<body>
+
+<h1>🚀 Deploy, Performance & Segurança</h1>
+
+<h2>⚡ Checklist de Performance</h2>
+<pre>
+✅ <span class="status good">PASSA</span> Sem frameworks pesados
+✅ <span class="status good">PASSA</span> Lazy loading ativado
+✅ <span class="status good">PASSA</span> CSS otimizado (17KB)
+✅ <span class="status good">PASSA</span> JS otimizado (5KB)
+✅ <span class="status good">PASSA</span> Hardware acceleration
+✅ <span class="status good">PASSA</span> RequestAnimationFrame para animações
+✅ <span class="status good">PASSA</span> Mobile-first responsive
+⚠️  <span class="status warning">AÇÃO</span> Comprimir imagens (IMPORTANTE!)
+</pre>
+
+<h2>📊 Testar Performance</h2>
+
+<h3>1. Google Lighthouse</h3>
+<pre>
+1. Abra o site no Chrome
+2. Pressione F12
+3. Clique em "Lighthouse" (ou "Audits")
+4. Clique "Analyze page load"
+5. Aguarde o resultado
+
+Metas para este site:
+- Performance: 90+
+- SEO: 95+
+- Acessibilidade: 90+
+</pre>
+
+<h3>2. PageSpeed Insights</h3>
+<pre>
+1. Vá em pagespeed.web.dev
+2. Cole a URL do seu site
+3. Analise o resultado
+
+Importante: Este site deve ter notas altas!
+</pre>
+
+<h3>3. Testar no Seu PC</h3>
+<pre>
+Abra o DevTools (F12) > Network:
+
+- Tamanho total deveria ser < 1MB
+- Carregamento < 2 segundos em conexão 4G
+- Teste com "Slow 4G" ou "Offline"
+- Verifique "Largest Contentful Paint" (LCP)
+</pre>
+
+<h2>🌐 Opções de Deploy (Recomendadas)</h2>
+
+<h3>1. Netlify (MAIS FÁCIL ⭐)</h3>
+<pre>
+Passos:
+1. Vá em netlify.com
+2. Clique "Drop files here to deploy"
+3. Arraste a pasta do seu projeto
+4. ✨ Pronto! Seu site está online
+
+Resultado:
+- URL gratuita: seu-projeto-1234.netlify.app
+- SSL/HTTPS automático
+- CDN global (rápido em qualquer lugar)
+- Sem configuração necessária
+</pre>
+
+<h3>2. Vercel</h3>
+<pre>
+Passos:
+1. Crie conta em vercel.com
+2. Clique "Import Project"
+3. Selecione a pasta
+4. Deploy automático
+
+Resultado:
+- URL similar: seu-projeto.vercel.app
+- Deployment automático via Git
+- Analytics integrado
+</pre>
+
+<h3>3. GitHub Pages (Para Devs Git)</h3>
+<pre>
+Passos:
+1. Crie repositório em GitHub
+2. Clique em Settings > Pages
+3. Selecione "main" branch como source
+4. Aguarde 1-2 minutos
+
+Resultado:
+- URL: seu-usuario.github.io/nome-repo
+- Sempre atualizado com seus commits
+- Gratuito e profissional
+</pre>
+
+<h3>4. Seu Próprio Hosting (Se já tem)</h3>
+<pre>
+Passos:
+1. Faça upload dos arquivos via FTP/SFTP
+2. Certifique-se que index.html está na raiz
+3. Configure SSL/HTTPS (muito importante!)
+
+Dica: Use Let's Encrypt (gratuito)
+</pre>
+
+<h2>🔒 Segurança & Boas Práticas</h2>
+
+<h3>Que Já Está Implementado:</h3>
+<ul>
+  <li>✅ Sem banco de dados (não há dados para roubar)</li>
+  <li>✅ Sem logins/senhas</li>
+  <li>✅ Sem requisições AJAX (seguro contra XSS)</li>
+  <li>✅ HTML semântico (busca melhor no Google)</li>
+  <li>✅ HTTPS ready (funciona com SSL/TLS)</li>
+  <li>✅ CSP headers compatível (sem inline scripts)</li>
+</ul>
+
+<h3>Adicional (Opcional):</h3>
+<pre>
+Se adicionar formulário de contato:
+
+❌ NÃO FAÇA:
+- Enviar dados para emails diretos via JS
+- Guardar senhas no código
+- Usar HTTP (sempre use HTTPS)
+
+✅ FAÇA:
+- Use serviço como Formspree, Basin ou Netlify Forms
+- Valide campos no cliente E no servidor
+- Use HTTPS sempre
+- Sanitize inputs
+
+Exemplo com Formspree (grátis):
+&lt;form action="https://formspree.io/f/YOUR_ID" method="POST"&gt;
+  &lt;input type="email" name="email" required&gt;
+  &lt;textarea name="mensagem"&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+<h2>📝 SEO (Search Engine Optimization)</h2>
+
+<h3>Já Implementado:</h3>
+<ul>
+  <li>✅ Meta tags básicas</li>
+  <li>✅ Estrutura semântica HTML5</li>
+  <li>✅ Responsive design</li>
+  <li>✅ Fast loading</li>
+  <li>✅ URLs simples</li>
+</ul>
+
+<h3>Melhorar SEO (Opcional):</h3>
+<pre>
+1. Adicione meta description no &lt;head&gt;:
+&lt;meta name="description" content="Portfólio minimalista de Isabelli. Galeria editorial e momentos especiais."&gt;
+
+2. Adicione Open Graph (para redes sociais):
+&lt;meta property="og:title" content="Portfólio Isabelli"&gt;
+&lt;meta property="og:description" content="Seu portfólio criativo"&gt;
+&lt;meta property="og:image" content="https://seu-site.com/preview.jpg"&gt;
+&lt;meta property="og:url" content="https://seu-site.com"&gt;
+
+3. Adicione favicon:
+&lt;link rel="icon" href="favicon.ico"&gt;
+
+4. Sitemap (para Google indexar):
+Criar arquivo sitemap.xml:
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://seu-site.com&lt;/loc&gt;
+    &lt;lastmod&gt;2025-04-19&lt;/lastmod&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;
+</pre>
+
+<h2>📱 Testar em Dispositivos Reais</h2>
+
+<h3>Testar no Celular (Android/iOS):</h3>
+<pre>
+Opção 1 - Chrome DevTools:
+1. Pressione F12
+2. Clique no ícone de celular (Device Toggle)
+3. Selecione iPhone ou Android
+
+Opção 2 - Compartilhamento de Rede Local:
+Se rodando localhost:8080:
+1. Descubra seu IP: ipconfig (Windows) ou ifconfig (Mac/Linux)
+2. No celular, acesse: http://SEU_IP:8080
+3. Teste tudo (scroll, modal, carrossel)
+</pre>
+
+<h2>⚙️ Otimizações Avançadas (Se quiser)</h2>
+
+<h3>Gzip Compression</h3>
+<pre>
+Se usando Netlify/Vercel: Automático! ✨
+
+Se seu hosting suporta:
+Coloque .htaccess:
+&lt;IfModule mod_deflate.c&gt;
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/javascript
+&lt;/IfModule&gt;
+</pre>
+
+<h3>Caching</h3>
+<pre>
+Se usando Netlify/Vercel: Automático!
+
+Coloque no _redirects (Netlify):
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "max-age=3600"
+
+  for = "/styles.css"
+  [headers.values]
+    Cache-Control = "max-age=31536000"
+</pre>
+
+<h3>Minificação (Opcional)</h3>
+<pre>
+Ferramentas grátis para minificar:
+- CSS: cssnano.co
+- JS: terser.org
+- HTML: minifier.org
+
+Resultado: ~20% redução de tamanho
+</pre>
+
+<h2>🐛 Debug & Troubleshooting</h2>
+
+<h3>Console (F12 > Console):</h3>
+<pre>
+Se ver erros vermelhos:
+- Clique no erro para ver a linha
+- Verifique se arquivos existem (404)
+- Verifique caminhos das imagens
+
+Script típico para debug:
+console.log('🎨 Portfólio carregado'); // Vê se JS rodou
+</pre>
+
+<h3>Network (F12 > Network):</h3>
+<pre>
+Verifique que tudo carrega:
+- status 200 = OK
+- status 404 = arquivo não encontrado
+- status 500 = erro do servidor
+
+Tamanho esperado:
+- HTML: ~5KB
+- CSS: ~17KB  
+- JS: ~5KB
+- Imagens: varia (deve ser comprimido!)
+</pre>
+
+<h2>📈 Monitoramento (Após Deploy)</h2>
+
+<pre>
+Ferramentas gratuitas:
+
+1. Google Analytics:
+   - Vê quantas pessoas visitam
+   - Tempo gasto no site
+   - Páginas populares
+   - De onde vem o tráfego
+
+2. Sentry:
+   - Monitora erros em tempo real
+   - Alerta se algo quebrar
+
+3. Uptime Robot:
+   - Verifica se seu site está online
+   - Alerta se cair
+</pre>
+
+<h2>🎓 Aprenda Mais</h2>
+
+<pre>
+Performance:
+- https://web.dev/
+- https://developers.google.com/web/fundamentals
+
+Deploy:
+- Documentação Netlify: docs.netlify.com
+- Documentação Vercel: vercel.com/docs
+
+SEO:
+- Google Search Console: search.google.com/search-console
+- Moz's Beginner's Guide to SEO
+
+Web Dev em Geral:
+- MDN Web Docs: developer.mozilla.org
+- CSS-Tricks: css-tricks.com
+</pre>
+
+<h2>✨ Resumo Rápido</h2>
+
+<pre>
+1. Teste localmente com: npm run serve
+2. Comprima imagens com TinyPNG
+3. Faça deploy no Netlify (mais fácil)
+4. Teste com Lighthouse (mire em 90+)
+5. Configure Google Analytics
+6. Divulgue nas redes sociais!
+
+Seu site está pronto para produção! 🎉
+</pre>
+
+</body>
+</html>

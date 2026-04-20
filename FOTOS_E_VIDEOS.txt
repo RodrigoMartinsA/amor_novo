@@ -1,0 +1,312 @@
+📸 COMO ADICIONAR SUAS FOTOS E VÍDEOS
+═══════════════════════════════════════════════════════════════
+
+Perfeito! Agora você pode adicionar facilmente suas próprias fotos e vídeos!
+
+═══════════════════════════════════════════════════════════════
+
+📁 ESTRUTURA DE PASTAS
+
+Crie esta estrutura na mesma pasta que está o index.html:
+
+Isabelli/
+├── index.html
+├── styles.css
+├── script.js
+├── fotos/          ← Crie esta pasta
+│   ├── 1.jpg
+│   ├── 2.jpg
+│   ├── 3.jpg
+│   └── ...
+└── videos/         ← Crie esta pasta (opcional)
+    ├── momento.mp4
+    └── ...
+
+═══════════════════════════════════════════════════════════════
+
+✅ FORMATOS SUPORTADOS
+
+Imagens:
+  ✓ JPG / JPEG
+  ✓ PNG
+  ✓ WebP (mais rápido)
+
+Vídeos:
+  ✓ MP4
+  ✓ WebM
+  ✓ OGG
+
+Tamanho recomendado:
+  • Fotos: até 2MB (melhor com 500KB-1MB)
+  • Vídeos: até 10MB
+
+═══════════════════════════════════════════════════════════════
+
+🎯 PASSO 1: ADICIONAR FOTOS NA GALERIA
+
+1. Copie suas fotos para a pasta /fotos
+   Exemplo: /fotos/1.jpg, /fotos/2.jpg, etc
+
+2. Abra index.html
+
+3. Procure por <div class="galeria-grid">
+
+4. Você verá itens assim:
+
+   <div class="galeria-item">
+     <img 
+       src="/fotos/1.jpg"          ← Path da foto
+       alt="Foto 1"
+       data-title="Seu Título"      ← Título no modal
+       data-description="Sua descrição aqui"
+       data-tag="Categoria"         ← Tag no modal
+       loading="lazy"
+     >
+   </div>
+
+5. Para adicionar mais fotos, copie este bloco:
+
+   <div class="galeria-item">
+     <img 
+       src="/fotos/sua-foto.jpg"
+       alt="Descrição"
+       data-title="Título Bonito"
+       data-description="Uma descrição interessante sobre a foto."
+       data-tag="Natureza"
+       loading="lazy"
+     >
+   </div>
+
+6. Para foto GRANDE (ocupa 2 colunas), use:
+
+   <div class="galeria-item large">
+     <img src="/fotos/grande.jpg" ... >
+   </div>
+
+═══════════════════════════════════════════════════════════════
+
+🎥 PASSO 2: ADICIONAR VÍDEOS NO CARROSSEL
+
+1. Copie seus vídeos para a pasta /videos
+   Exemplo: /videos/momento.mp4
+
+2. Procure por <div class="carousel-track" id="carouselTrack">
+
+3. Você verá itens assim:
+
+   <div class="carousel-item">
+     <img src="..." >
+   </div>
+
+4. Para adicionar um vídeo, use este formato:
+
+   <div class="carousel-item">
+     <video 
+       src="/videos/seu-video.mp4"
+       data-title="Título do Vídeo"
+       data-description="Descrição do vídeo"
+       data-tag="Vídeo"
+       controls
+     ></video>
+   </div>
+
+5. Atributos disponíveis:
+   • src="" → Caminho do vídeo (obrigatório)
+   • data-title="" → Título no modal
+   • data-description="" → Descrição no modal
+   • data-tag="" → Tag/categoria
+   • controls → Botões de play/pause (recomendado)
+   • autoplay → Toca automaticamente (opcional)
+   • muted → Sem áudio (opcional)
+   • loop → Repete o vídeo (opcional)
+
+═══════════════════════════════════════════════════════════════
+
+💡 EXEMPLOS PRÁTICOS
+
+EXEMPLO 1 - Foto simples na galeria:
+<div class="galeria-item">
+  <img 
+    src="/fotos/isabelli-praia.jpg"
+    alt="Isabelli na praia"
+    data-title="Dia na Praia"
+    data-description="Um dia ensolarado na praia. Momento de pura relaxação e beleza natural."
+    data-tag="Natureza"
+    loading="lazy"
+  >
+</div>
+
+EXEMPLO 2 - Foto grande na galeria:
+<div class="galeria-item large">
+  <img 
+    src="/fotos/isabelli-grande.jpg"
+    alt="Isabelli retrato grande"
+    data-title="Retrato"
+    data-description="Uma foto linda capturando toda a beleza e elegância."
+    data-tag="Retrato"
+    loading="lazy"
+  >
+</div>
+
+EXEMPLO 3 - Vídeo no carrossel:
+<div class="carousel-item">
+  <video 
+    src="/videos/casal-danca.mp4"
+    data-title="Dançando Juntos"
+    data-description="Um momento de alegria e diversão. Dançando juntos sem preocupações."
+    data-tag="Casal"
+    controls
+  ></video>
+</div>
+
+EXEMPLO 4 - Vídeo com autoplay (silencioso):
+<div class="carousel-item">
+  <video 
+    src="/videos/pôr-do-sol.mp4"
+    data-title="Pôr do Sol"
+    data-description="Assistindo juntos o pôr do sol mais lindo."
+    data-tag="Momento"
+    autoplay
+    muted
+    loop
+  ></video>
+</div>
+
+═══════════════════════════════════════════════════════════════
+
+📝 PREENCHENDO OS ATRIBUTOS
+
+data-title (Título)
+  • Aparece em VERDE ESCURO no modal
+  • Máximo recomendado: 30 caracteres
+  • Exemplos: "Dia Ensolarado", "Nosso Vídeo", "Retrato"
+
+data-description (Descrição)
+  • Aparece em CINZA no modal
+  • Máximo recomendado: 200 caracteres
+  • Pode ter múltiplas linhas (uma descrição)
+  • Exemplos:
+    "Um dia perfeito sob o sol."
+    "Um vídeo especial capturando momentos únicos."
+
+data-tag (Tag/Marca)
+  • Aparece em FUNDO VERDE no modal
+  • Máximo: 20 caracteres
+  • Uma única palavra ou termo curto
+  • Exemplos: "Natureza", "Retrato", "Vídeo", "Casal"
+
+═══════════════════════════════════════════════════════════════
+
+⚡ DICAS DE PERFORMANCE
+
+Para vídeos rodarem bem:
+  ✓ Use formato MP4 (compatível com mais navegadores)
+  ✓ Máximo 10MB por vídeo
+  ✓ Resolução 1080p é o ideal
+  ✓ Comprima antes de adicionar (use handbrake.fr)
+
+Para fotos:
+  ✓ Use TinyPNG para comprimir JPGs
+  ✓ Máximo 2MB (ideal 500KB-1MB)
+  ✓ Comprida antes de adicionar
+
+═══════════════════════════════════════════════════════════════
+
+🎨 ESTRUTURA NO MODAL AO CLICAR
+
+Quando clica em uma imagem/vídeo:
+
+┌──────────────────────────┐
+│  Mídia Grande │ Título   │
+│  (Imagem/    │           │
+│   Vídeo)     │ Descrição │
+│              │           │
+│              │ [Tag]     │
+└──────────────────────────┘
+
+No mobile, fica empilhado:
+┌──────────────────┐
+│  Mídia Grande    │
+├──────────────────┤
+│ Título           │
+│ Descrição        │
+│ [Tag]            │
+└──────────────────┘
+
+═══════════════════════════════════════════════════════════════
+
+🚀 RESUMO RÁPIDO - ADICIONAR FOTO
+
+1. Copie foto para /fotos/minha-foto.jpg
+2. Abra index.html
+3. Procure <div class="galeria-grid">
+4. Adicione:
+
+<div class="galeria-item">
+  <img 
+    src="/fotos/minha-foto.jpg"
+    alt="Descrição"
+    data-title="Meu Título"
+    data-description="Minha descrição"
+    data-tag="Minha Tag"
+    loading="lazy"
+  >
+</div>
+
+═══════════════════════════════════════════════════════════════
+
+🎬 RESUMO RÁPIDO - ADICIONAR VÍDEO
+
+1. Copie vídeo para /videos/meu-video.mp4
+2. Abra index.html
+3. Procure <div class="carousel-track" id="carouselTrack">
+4. Adicione:
+
+<div class="carousel-item">
+  <video 
+    src="/videos/meu-video.mp4"
+    data-title="Meu Vídeo"
+    data-description="Descrição do vídeo"
+    data-tag="Vídeo"
+    controls
+  ></video>
+</div>
+
+═══════════════════════════════════════════════════════════════
+
+❓ TROUBLESHOOTING
+
+Imagem não aparece?
+  ✓ Verifique se o arquivo existe em /fotos/
+  ✓ Verifique se o nome do arquivo está correto (case-sensitive!)
+  ✓ Use "/" no caminho, não "\"
+
+Vídeo não reproduz?
+  ✓ Verifique se o formato é MP4
+  ✓ Teste reproduzir o vídeo direto no PC primeiro
+  ✓ Comprima se tiver mais de 10MB
+
+Texto não aparece no modal?
+  ✓ Verifique se os atributos data-* estão preenchidos
+  ✓ Certifique-se de fechar as aspas corretamente
+
+═══════════════════════════════════════════════════════════════
+
+✨ O EFEITO TILT FOI REMOVIDO
+
+O efeito que mexia a foto quando passava o mouse foi removido.
+Agora é mais leve e rápido! A foto fica estática no modal.
+
+═══════════════════════════════════════════════════════════════
+
+🎉 TUDO PRONTO!
+
+Você já pode:
+✓ Adicionar suas fotos (até 2MB)
+✓ Adicionar vídeos (até 10MB)
+✓ Customizar títulos e descrições
+✓ Usar a galeria de forma dinâmica
+
+Divirta-se! 📸🎥
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,40 @@
+# Dependências Node
+node_modules/
+package-lock.json
+yarn.lock
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Build & Dist
+dist/
+build/
+*.log
+
+# Sistema operacional
+.DS_Store
+desktop.ini
+
+# Fotos/Imagens não comprimidas (opcional)
+images/*.psd
+images/*.ai
+images/originals/
+
+# Backups
+*.bak
+*.backup
+*~
+
+# Cache do navegador
+.cache/
